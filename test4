@@ -1,0 +1,60 @@
+To do assignment 3 (EC2 and EFS)- 1. Created an 3 ec2 instances in the any region with Ubuntu, Red Hat Linux and  Amazon Linux 2 then connect 3 created instances through the Gitbash.
+                                     To create 3 instances go to AWS console-click on the instances- click on launch instance-give instances name-select Ubuntu, Red Hat Linux and Amazon Linux 2 as AMI for those instances-select existing key created key pair-select default security group then click on launch instance individually- Configure security group to allow SSH (port 22) and NFS (port 2049).
+                                  2. Create an EFS File system open the AWS Management console then go to Amazon EFS service- Click on create file system give the name and select the VPC where instances are located then click on create file system.
+ 
+                                  3. 4. Connect the created ec2 instances through Gitbash by using following commands:
+                                    
+                                          pwd
+                                          ls -lrt
+                                          cd Downloads
+                                          ls
+                                          ls -lrt key-file-name.pem
+                                          chmod 400 key-file-name.pem
+                                          ssh -i key-file-name.pem ubuntu@public ip of ubuntu-ec2 instance (For Ubuntu instance)
+
+                                          pwd
+                                          ls -lrt
+                                          cd Downloads
+                                          ls
+                                          ls -lrt key-file-name.pem
+                                          chmod 400 key-file-name.pem
+                                          ssh -i key-file-name.pem ec2-user@public ip of red hat linux ec2 instance
+
+                                          pwd
+                                          ls -lrt
+                                          cd Downloads
+                                          ls
+                                          ls -lrt key-file-name.pem
+                                          chmod 400 key-file-name.pem
+                                          ssh -i key-file-name.pem ec2-user@public ip of amazon linux 2 ec2 instance
+                                      Then all the instances are connected 
+
+
+                                  4. Connect the each instance to EFS- 
+                                     Mount EFS on Ubuntu Instance by the following commands:
+                                          sudo apt-get update
+                                          df -h (To see the mount point)
+                                          sudo apt-get install nfs-common
+                                          sudo mkdir -p efs
+                                          sudo mount -t nfs4 ip of EFS:/ efs
+                                          nfsstat -m (To see the updated mount)
+                                          df -h (EFS mounting is completed)
+                
+                                    Mount EFS on Red Hat Linux Instance by the following commands:
+                                          sudo yum install -y nfs-utils
+                                          df -h (To see the mount point)
+                                          sudo mkdir -p efs
+                                          sudo munt -t nfs4 IP of EFS:/ efs
+                                          df -h (EFS mounting is completed)
+             
+                                    Mount EFS on Amazon Linux 2 Instance by using following commands:
+                                          sudo yum install -y nfs-utils
+                                          df -h (To see the mount point)
+                                          sudo mkdir -p efs
+                                          sudo munt -t nfs4 IP of EFS:/ efs
+                                          df -h (EFS mounting is completed)
+             
+
+
+
+
