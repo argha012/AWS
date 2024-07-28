@@ -1,0 +1,9 @@
+Module 2 Case Study-1
+---------------------
+
+1. Created an ec2 instance in the US East 1 region with Linux OS-
+                                To create an instance go to AWS console-click on the instances- click on launch instance-give instance name-select linux os for the instance-select create a key pair-select default security group then click on launch instance. After launching instance select the created instance and then go to actions from there click on image and templates then click on create image give the image name and description after that a image is created then go to AMI from the console and select the created image and go to actions from there click on copy ami and specify the destination US West 2 region where I want to copy the ami after copied the ami go to US West 2 region and from that ami launch another instance with Linux os on that region.
+2. After creating those instances go to Us East 1 region then go to EBS section from there click on volumes and then create on create volume specify the storage capacity and select the availability zone where the instance is created then create on create volume by this process create two volumes for that instance and then attach those created volumes with the instance one by one and it will reflect in the instance.
+3. After this detach one volume from the instance and then delete that volume.
+4. Then select another volume after that go to actions and click on modify volume to modify the another volume
+To take backup of this EBS volumes select the volume and click on actions and from there go to create Snapshot.
