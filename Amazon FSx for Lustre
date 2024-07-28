@@ -1,0 +1,14 @@
+Amazon FSx for Lustre
+---------------------
+1. Create an ec2 instance with Amazon Linux 2
+2. Go to Amazon FSx and from there click on create file system then select Amazon FSx for Lustre and give the file name, select the deployment type storage capacity and check the availability zone check the security group then click on create file system
+3. After creating the file system connect the ec2 instance
+4. After connecting write the following commands till the file system is mounted on the ec2 instance
+
+sudo yum update
+uname -r (To review the kernel version)
+sudo dnf -y update kernel && sudo reboot (If the kernel version is not updated then run this command to update the kernel version)
+sudo dnf install -y lustre-client (To install lustre)
+sudo mkdir /fsx
+sudo mount -t lustre -o relatime,flock fs-08a61b9cb21d27af6.fsx.us-east-1.amazonaws.com@tcp:/gife3b4v /fsx (It is copied from FSx file)
+df -h (To see the FSx file is attached to ec2 instance)
